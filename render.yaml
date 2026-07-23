@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: al-naslan-fitness
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: N8N_CHAT_WEBHOOK_URL
+        sync: false
+      - key: N8N_LEAD_WEBHOOK_URL
+        sync: false
