@@ -3,13 +3,13 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Al Naslan Fitness Center | Premium Fitness Center",
+  title: "Al Naslan Fitness Center | Gym in Al Taawun, Sharjah",
   description:
-    "A premium website for Al Naslan Fitness Center in Sharjah: memberships, classes, swimming, kids programs, analytics and free trial booking.",
-  keywords: ["Al Naslan Fitness Center", "Sharjah gym", "personal training Sharjah", "free gym trial"],
+    "Al Naslan Fitness Center (NFC) in Al Taawun, Sharjah: gym memberships, personal training, classes, swimming, kids programs, Naslan Cafe and free trial booking.",
+  keywords: ["Al Naslan Fitness Center", "Sharjah gym", "Al Taawun gym", "personal training Sharjah", "free gym trial"],
   openGraph: {
     title: "Al Naslan Fitness Center",
-    description: "Premium fitness, swimming, nutrition and body analytics in one destination.",
+    description: "Premium fitness, swimming, kids programs and nutrition in one destination in Al Taawun, Sharjah.",
     type: "website",
   },
 };

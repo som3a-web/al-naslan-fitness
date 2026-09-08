@@ -10,7 +10,7 @@ export default function TrialSuccess({
   searchParams: { ref?: string; name?: string; goal?: string };
 }) {
   const firstName = searchParams.name?.split(" ")[0] || "Champion";
-  const ref = searchParams.ref || "NFC-DEMO";
+  const ref = searchParams.ref || "NFC-TRIAL";
   const goal = searchParams.goal || "General Fitness";
   const whatsappText = `Hi NFC, I submitted a free trial request. Reference: ${ref}. Goal: ${goal}.`;
 
@@ -30,7 +30,7 @@ export default function TrialSuccess({
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted">
             Your NFC free trial request is ready for WhatsApp confirmation. Bring your training shoes;
-            we&apos;ll prepare the gym access, InBody scan and goal consultation.
+            we&apos;ll prepare your gym access and goal consultation.
           </p>
 
           <div className="mx-auto mt-8 grid max-w-xl gap-3 sm:grid-cols-3">

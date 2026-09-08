@@ -4,7 +4,7 @@ import { aiReply } from "@/lib/ai";
 export async function POST(request: Request) {
   const body = await request.json().catch(() => ({}));
   const message = typeof body.message === "string" ? body.message : "";
-  const sessionId = typeof body.sessionId === "string" ? body.sessionId : "demo";
+  const sessionId = typeof body.sessionId === "string" ? body.sessionId : "web";
   const webhook = process.env.N8N_CHAT_WEBHOOK_URL;
 
   if (webhook) {
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         });
       }
     } catch {
-      // The local demo should remain useful even before n8n is connected.
+      // Fall back to the local assistant if the webhook is unreachable.
     }
   }
 

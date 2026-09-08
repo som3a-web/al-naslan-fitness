@@ -28,3 +28,6 @@ pnpm-debug.log*
 # local tooling and business documents
 .claude/
 business/
+
+# build info
+tsconfig.tsbuildinfo

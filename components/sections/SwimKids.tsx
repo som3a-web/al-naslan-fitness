@@ -1,10 +1,10 @@
 "use client";
 
-import { Waves, Clock, Users, Baby } from "lucide-react";
+import { Waves, Clock, Baby, MessageCircle } from "lucide-react";
 import { SectionHeader } from "../SectionHeader";
 import { Reveal } from "../Reveal";
 import { Icon } from "@/lib/icons";
-import { SWIMMING, KIDS, BRAND } from "@/lib/data";
+import { SWIMMING, KIDS, BRAND, PRICING } from "@/lib/data";
 
 export function SwimKids() {
   return (
@@ -13,7 +13,7 @@ export function SwimKids() {
         eyebrow="Swimming & Kids"
         title="A pool for"
         highlight="every age"
-        subtitle="Adult lap memberships, learn-to-swim, private coaching and a full kids academy — swimming, karate and summer camps."
+        subtitle="Adult lap sessions, learn-to-swim, private coaching and a full kids academy — swimming, karate and summer camps."
       />
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
@@ -28,18 +28,25 @@ export function SwimKids() {
             </div>
             <div className="space-y-3">
               {SWIMMING.map((s) => (
-                <div key={s.name} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <div key={s.name} className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                   <div>
                     <p className="font-semibold">{s.name}</p>
                     <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted"><Clock size={12} /> {s.schedule}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="font-display text-lg font-extrabold"><span className="text-xs text-flame-400">{BRAND.currency} </span>{s.price}</p>
-                    <p className="flex items-center justify-end gap-1 text-xs text-green-400"><Users size={11} /> {s.slots} slots</p>
-                  </div>
+                  <a
+                    href={`${BRAND.whatsappLink}?text=${encodeURIComponent(`Hi NFC, I'd like to ask about ${s.name}.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-bold transition hover:border-flame-500/50 hover:text-flame-400"
+                  >
+                    <MessageCircle size={13} /> Ask
+                  </a>
                 </div>
               ))}
             </div>
+            <p className="mt-4 text-xs text-muted">
+              Pool schedules rotate — message our team for this week&apos;s slots and pricing.
+            </p>
           </div>
         </Reveal>
 
@@ -65,18 +72,13 @@ export function SwimKids() {
                   </div>
                   <p className="mt-3 font-semibold">{k.name}</p>
                   <p className="text-xs text-muted">{k.schedule}</p>
-                  <div className="mt-3">
-                    <div className="mb-1 flex justify-between text-[10px] text-muted">
-                      <span>Capacity</span><span>{k.capacity}%</span>
-                    </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full rounded-full bg-flame-gradient" style={{ width: `${k.capacity}%` }} />
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>
-            <a href="#trial" className="mt-4 block rounded-full bg-flame-gradient py-2.5 text-center text-sm font-bold text-white">
+            <p className="mt-4 text-center text-xs text-muted">
+              Kids membership from {BRAND.currency} {PRICING.tiers.internal.kidsMonthly}/month — see pricing above.
+            </p>
+            <a href="#trial" className="mt-3 block rounded-full bg-flame-gradient py-2.5 text-center text-sm font-bold text-white">
               Register a Child
             </a>
           </div>

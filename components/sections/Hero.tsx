@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
 import { ParticleField } from "../ParticleField";
-import { Counter } from "../Counter";
-import { BRAND, STATS } from "@/lib/data";
+import { BRAND } from "@/lib/data";
 import { ThreeBrandScene } from "../ThreeBrandScene";
 
 const container = {
@@ -18,7 +16,7 @@ const item = {
 };
 
 export function Hero() {
-  const experiences = ["Gym floor", "Swimming pool", "Kids academy", "Nutrition cafe", "Body analytics"];
+  const experiences = ["Gym floor", "Swimming pool", "Kids academy", "Personal training", "Naslan Cafe"];
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden">
@@ -53,9 +51,6 @@ export function Hero() {
         className="section relative z-10 pb-24 pt-28 sm:pt-36"
       >
         <motion.div variants={item} className="mb-5 flex flex-wrap items-center gap-3 sm:mb-6">
-          <span className="relative grid h-12 w-12 place-items-center overflow-hidden rounded-full border border-white/20 bg-white shadow-flame sm:h-16 sm:w-16">
-            <Image src="/media/nfc-logo.jpeg" alt={BRAND.name} fill className="object-cover" priority sizes="64px" />
-          </span>
           <span className="eyebrow">
             <MapPin size={14} />
             {BRAND.location}
@@ -75,8 +70,8 @@ export function Hero() {
         </motion.h1>
 
         <motion.p variants={item} className="mt-5 max-w-2xl text-base leading-7 text-white/75 sm:mt-6 sm:text-lg sm:leading-8">
-          {BRAND.short} brings strength training, swimming, kids programs, nutrition, recovery
-          and smart progress tracking into one premium fitness center in Sharjah.
+          {BRAND.short} brings strength training, swimming, kids programs, nutrition
+          and recovery into one premium fitness center in Al Taawun, Sharjah.
         </motion.p>
 
         <motion.div variants={item} className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:flex sm:flex-wrap">
@@ -119,25 +114,6 @@ export function Hero() {
           ))}
         </motion.div>
 
-        {/* Animated stats */}
-        <motion.div
-          variants={item}
-          className="mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4"
-        >
-          {STATS.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-white/[0.08] bg-[rgba(30,30,35,0.85)] px-3 py-4 text-center shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:px-4 sm:py-5"
-            >
-              <p className="font-display text-2xl font-extrabold text-white sm:text-4xl">
-                <Counter to={s.value} suffix={s.suffix} />
-              </p>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wider text-white/60">
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </motion.div>
 
       {/* Scroll hint */}

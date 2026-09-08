@@ -10,7 +10,6 @@ const LINKS = [
   { label: "Facilities", href: "#facilities" },
   { label: "Programs", href: "#programs" },
   { label: "Membership", href: "#membership" },
-  { label: "Classes", href: "#classes" },
   { label: "Nutrition", href: "#nutrition" },
   { label: "Kids", href: "#swimming" },
 ];

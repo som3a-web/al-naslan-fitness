@@ -13,7 +13,7 @@ export function Nutrition() {
         eyebrow="Nutrition Programs"
         title="Fuel your"
         highlight="results"
-        subtitle="Gym-approved meal plans with macro tracking and delivery — prepared fresh by our own in-house NFC Café (see the full menu below)."
+        subtitle="Goal-based meal guidance connected to your training — supported by the healthy kitchen at Naslan Cafe, right at the gym."
       />
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -34,17 +34,18 @@ export function Nutrition() {
                   </span>
                   <h3 className="mt-3 text-xl font-bold">{n.name}</h3>
                   <div className="mt-4 space-y-2 text-sm text-muted">
-                    <p className="flex items-center gap-2"><Flame size={14} className="text-flame-400" /> {n.kcal} kcal / day</p>
+                    <p className="flex items-center gap-2"><Flame size={14} className="text-flame-400" /> {n.kcal} kcal / day target</p>
                     <p className="flex items-center gap-2"><Check size={14} className="text-flame-400" /> {n.meals}</p>
-                    <p className="flex items-center gap-2"><Check size={14} className="text-flame-400" /> Macro tracking + delivery</p>
+                    <p className="flex items-center gap-2"><Check size={14} className="text-flame-400" /> Matched to your training goal</p>
                   </div>
-                  <div className="mt-5 flex items-end justify-between">
-                    <p className="font-display text-3xl font-extrabold">
-                      <span className="text-sm text-flame-400">{BRAND.currency} </span>{n.price}
-                      <span className="text-sm font-medium text-muted"> /wk</span>
-                    </p>
-                    <a href="#trial" className="rounded-full bg-flame-gradient px-4 py-2 text-xs font-bold text-white">
-                      Subscribe
+                  <div className="mt-5">
+                    <a
+                      href={`${BRAND.whatsappLink}?text=${encodeURIComponent(`Hi NFC, I'd like to ask about the ${n.name} nutrition program.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block rounded-full bg-flame-gradient px-4 py-2 text-xs font-bold text-white"
+                    >
+                      Ask on WhatsApp
                     </a>
                   </div>
                 </div>

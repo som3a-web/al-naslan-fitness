@@ -1,130 +1,135 @@
 // ===========================================================================
-// NFC AI Assistant — local rule-based "brain".
+// NFC Assistant — local rule-based FAQ brain.
 // Used as the instant fallback when no n8n webhook is configured.
-// In production, app/api/chat/route.ts forwards to n8n; this keeps the
-// demo fully functional offline and gives n8n a clean response contract.
+// app/api/chat/route.ts forwards to n8n when available; this keeps the
+// website assistant fully functional offline with the official pricing.
 // ===========================================================================
 
-import { MEMBERSHIPS, BRAND } from "./data";
+import { BRAND, PRICING } from "./data";
 
 export type Msg = { role: "user" | "bot"; text: string; chips?: string[] };
 
-const fmt = (n: number) => `${BRAND.currency} ${n.toLocaleString()}`;
+const aed = (n: number) => `${BRAND.currency} ${n.toLocaleString()}`;
+
+function pricingText(): string {
+  const i = PRICING.tiers.internal;
+  const e = PRICING.tiers.external;
+  return [
+    "Here is our official pricing (effective " + PRICING.effectiveFrom + "):",
+    "",
+    "Internal — Adult:",
+    `• 1 month ${aed(i.adult[0].price)} · 3 months ${aed(i.adult[1].price)}`,
+    `• 6 months ${aed(i.adult[2].price)} · 1 year ${aed(i.adult[3].price)}`,
+    "",
+    "External — Adult:",
+    `• 1 month ${aed(e.adult[0].price)} · 3 months ${aed(e.adult[1].price)}`,
+    `• 6 months ${aed(e.adult[2].price)} · 1 year ${aed(e.adult[3].price)}`,
+    "",
+    `Daily pass ${aed(PRICING.dailyPass)} · Family discount ${aed(PRICING.familyDiscount)} per person.`,
+    "Not sure if you're Internal or External? Ask our team on WhatsApp.",
+  ].join("\n");
+}
 
 export function aiReply(input: string): Msg {
   const q = input.toLowerCase();
 
-  if (/price|cost|how much|membership|plan|fee/.test(q)) {
+  if (/personal training|personal trainer|\bpt\b|coach|trainer/.test(q)) {
+    const i = PRICING.tiers.internal;
+    const e = PRICING.tiers.external;
     return {
       role: "bot",
-      text: `Here are our plans:\n• Monthly — ${fmt(MEMBERSHIPS[0].price)}\n• Quarterly — ${fmt(
-        MEMBERSHIPS[1].price
-      )} (most popular, save 16%)\n• Annual — ${fmt(
-        MEMBERSHIPS[2].price
-      )} (best value, save 33%)\n\nWant me to recommend one for your goal?`,
-      chips: ["Recommend a plan", "Book a free trial", "What's included?"],
-    };
-  }
-  if (/recommend|which plan|best for|suggest/.test(q)) {
-    return {
-      role: "bot",
-      text: "Tell me your main goal and I'll match a plan. For most members, Quarterly is the sweet spot — unlimited classes, 2 PT sessions, pool access, and monthly InBody analytics.",
-      chips: ["Fat loss", "Muscle gain", "General fitness"],
-    };
-  }
-  if (/caf|cafe|café|coffee|eat|food|meal|menu|smoothie|shake|protein bowl|snack/.test(q)) {
-    return {
-      role: "bot",
-      text: "Our in-house NFC Café serves macro-counted healthy food right inside the gym 🍽️ — high-protein bowls, smoothies, pre/post-workout meals, snacks and coffee. Order ahead and it's ready after your session, and every order earns reward points.",
-      chips: ["See the menu", "Best meal for muscle gain", "Order on WhatsApp"],
-    };
-  }
-  if (/fat loss|lose weight|slim|cut/.test(q)) {
-    return {
-      role: "bot",
-      text: "For fat loss I'd pair the Quarterly plan with our HIIT + Strength classes and the 'Lean & Cut' nutrition program. You'll get InBody tracking to watch body-fat % drop every month.",
-      chips: ["Book free trial", "See nutrition", "Talk on WhatsApp"],
-    };
-  }
-  if (/muscle|bulk|gain|strength|big/.test(q)) {
-    return {
-      role: "bot",
-      text: "For muscle gain, the Annual plan includes 8 PT sessions with our strength coaches plus the 'Build & Bulk' nutrition program. Strength Lab runs daily at 17:30.",
-      chips: ["Book free trial", "Meet trainers", "See nutrition"],
-    };
-  }
-  if (/trial|free|try|start/.test(q)) {
-    return {
-      role: "bot",
-      text: "Great choice! Your free trial includes a full-gym day pass + a complimentary InBody scan. Scroll to the 'Start Free Trial' form, or I can hand you to our WhatsApp team to confirm instantly.",
-      chips: ["Open trial form", "WhatsApp the team"],
-    };
-  }
-  if (/class|book|schedule|timetable|yoga|hiit|crossfit|boxing/.test(q)) {
-    return {
-      role: "bot",
-      text: "We run 96 classes a week — HIIT, CrossFit, Strength Lab, Power Yoga, Boxing and Mobility. Each shows live occupancy so you book a guaranteed spot. Check the Classes section for today's schedule.",
-      chips: ["See today's classes", "Book a trainer"],
-    };
-  }
-  if (/trainer|coach|personal|pt/.test(q)) {
-    return {
-      role: "bot",
-      text: "Our coaches: Khalid (strength & muscle), Sara (fat loss & functional), and Omar (athletic performance). PT packages start at flexible per-session rates. Want me to book a consultation?",
-      chips: ["Book consultation", "See PT packages"],
-    };
-  }
-  if (/time|open|hour|when/.test(q)) {
-    return {
-      role: "bot",
-      text: "Main gym: 6:00 AM – 12:00 AM daily.\nPool: 6:00–10:00 AM & 4:00–10:00 PM.\nLadies-only hours available — ask me for today's slots.",
-      chips: ["Pool schedule", "Book a class"],
-    };
-  }
-  if (/pool|swim/.test(q)) {
-    return {
-      role: "bot",
-      text: "We have a 25m temperature-controlled lap pool plus a kids pool. Adult lap membership, kids learn-to-swim, private coaching and aqua fitness are all bookable online.",
-      chips: ["Kids swimming", "Adult membership"],
+      text:
+        `Personal training packages:\n\nInternal:\n• 10 classes ${aed(i.pt[0].price)} · 20 classes ${aed(
+          i.pt[1].price
+        )} · 30 classes ${aed(i.pt[2].price)}\n\nExternal:\n• 10 classes ${aed(e.pt[0].price)} · 20 classes ${aed(
+          e.pt[1].price
+        )} · 30 classes ${aed(e.pt[2].price)}\n\nOur certified coaches build a custom program for your goal.`,
+      chips: ["Membership pricing", "Book on WhatsApp"],
     };
   }
   if (/kid|child|karate|junior|summer/.test(q)) {
     return {
       role: "bot",
-      text: "Kids programs: swimming (5–12), Karate Academy (6–14), Junior Fitness (8–15) and a Summer Camp. Family membership bundles let the whole family train on one plan.",
-      chips: ["Register a child", "Family plans"],
+      text: `Kids programs: swimming, Karate Academy, junior fitness and a summer camp.\n\nKids membership (1 month): Internal ${aed(
+        PRICING.tiers.internal.kidsMonthly
+      )} · External ${aed(PRICING.tiers.external.kidsMonthly)}.\nFamily discount: ${aed(
+        PRICING.familyDiscount
+      )} off per person.`,
+      chips: ["Register a child", "Talk on WhatsApp"],
     };
   }
-  if (/location|where|address|map|sharjah/.test(q)) {
+  if (/price|cost|how much|membership|plan|fee|tier|internal|external|daily pass|day pass|family/.test(q)) {
     return {
       role: "bot",
-      text: `We're in ${BRAND.location}. Tap the WhatsApp button for directions or a live location pin.`,
+      text: pricingText(),
+      chips: ["Personal training", "Kids programs", "Book a free trial"],
+    };
+  }
+  if (/trial|free|try|start|sign ?up|join|register/.test(q)) {
+    return {
+      role: "bot",
+      text: "You can start with a free trial session — fill the 'Start Free Trial' form on this page and our team confirms your visit on WhatsApp. Prefer to try first? A daily pass is " + aed(PRICING.dailyPass) + ".",
+      chips: ["Open trial form", "Membership pricing", "WhatsApp the team"],
+    };
+  }
+  if (/class|schedule|timetable|yoga|hiit|crossfit|boxing|mobility/.test(q)) {
+    return {
+      role: "bot",
+      text: "We run group classes through the week. Message our team on WhatsApp for the current timetable and to reserve your spot.",
+      chips: ["Talk on WhatsApp", "Membership pricing"],
+    };
+  }
+  if (/time|open|hour|when|timing/.test(q)) {
+    return {
+      role: "bot",
+      text: `Men's timing: ${PRICING.maleTiming} daily.\nFor ladies and pool schedules, message our team on WhatsApp for this week's slots.`,
+      chips: ["Pool & swimming", "WhatsApp the team"],
+    };
+  }
+  if (/pool|swim|aqua/.test(q)) {
+    return {
+      role: "bot",
+      text: "We have an indoor lap pool plus a kids pool. Adult lap sessions, kids learn-to-swim, private coaching and aqua fitness are all available — ask our team on WhatsApp for this week's pool schedule.",
+      chips: ["Kids swimming", "WhatsApp the team"],
+    };
+  }
+  if (/caf|cafe|café|coffee|eat|food|meal|menu|smoothie|shake|snack|nutrition/.test(q)) {
+    return {
+      role: "bot",
+      text: "Naslan Cafe is our healthy food and coffee spot right at the gym — high-protein meals, smoothies, pre/post-workout fuel and barista coffee. The full menu is at the counter, or ask our team on WhatsApp.",
+      chips: ["Ask about the menu", "Membership pricing"],
+    };
+  }
+  if (/location|where|address|map|sharjah|taawun|directions/.test(q)) {
+    return {
+      role: "bot",
+      text: `We're in ${BRAND.location}. Tap WhatsApp for directions or a live location pin.`,
       chips: ["WhatsApp directions", "Working hours"],
     };
   }
-  if (/whatsapp|contact|call|phone|talk|human/.test(q)) {
+  if (/whatsapp|contact|call|phone|talk|human|email/.test(q)) {
     return {
       role: "bot",
-      text: "I can connect you to our team on WhatsApp right now — they handle trial registration, bookings and any questions instantly.",
+      text: `You can reach our team directly:\n• WhatsApp / phone: ${BRAND.phone}\n• Email: ${BRAND.email}\n\nThey handle trials, bookings and any questions.`,
       chips: ["Open WhatsApp"],
     };
   }
-  if (/hi|hello|hey|salam|good/.test(q)) {
+  if (/\bhi\b|hello|hey|salam|marhaba|good (morning|afternoon|evening)/.test(q)) {
     return {
       role: "bot",
-      text: `Hi! I'm NFC AI 🤖 — your fitness concierge at ${BRAND.short}. I can help with memberships, pricing, class & trainer booking, timings and free trials. What are you after?`,
-      chips: ["Membership pricing", "Book a free trial", "Find a class"],
+      text: `Hi! I'm the ${BRAND.short} assistant. I can help with membership pricing, personal training, classes, swimming, kids programs, timings and free trials. What are you after?`,
+      chips: ["Membership pricing", "Book a free trial", "Class schedule"],
     };
   }
   return {
     role: "bot",
-    text: "I can help with memberships, pricing, class & trainer bookings, timings, swimming, kids programs and free trials. What would you like to do?",
-    chips: ["Pricing", "Free trial", "Classes", "Talk on WhatsApp"],
+    text: "I can help with membership pricing, personal training, classes, swimming & pool access, kids programs, timings, location and free trials. What would you like to know?",
+    chips: ["Pricing", "Free trial", "Timings", "Talk on WhatsApp"],
   };
 }
 
 export const WELCOME: Msg = {
   role: "bot",
-  text: "👋 Welcome to Al Naslan Fitness Center! I'm NFC AI, your 24/7 fitness concierge. How can I help you today?",
-  chips: ["Membership pricing", "Book a free trial", "Class schedule", "Talk on WhatsApp"],
+  text: `👋 Welcome to ${BRAND.name}! Ask me about memberships, personal training, swimming, kids programs or timings.`,
+  chips: ["Membership pricing", "Book a free trial", "Personal training", "Kids programs"],
 };

@@ -3,10 +3,8 @@ import { Logo } from "../Logo";
 import { BRAND } from "@/lib/data";
 
 const HOURS = [
-  { d: "Gym (Sat–Thu)", h: "6:00 AM – 12:00 AM" },
-  { d: "Gym (Friday)", h: "2:00 PM – 12:00 AM" },
-  { d: "Pool", h: "6–10 AM · 4–10 PM" },
-  { d: "Ladies Hours", h: "10 AM – 4 PM" },
+  { d: "Gym (Men)", h: "6:00 AM – 12:00 AM" },
+  { d: "Ladies & Pool", h: "Ask on WhatsApp" },
 ];
 
 export function Footer() {
@@ -36,7 +34,7 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-flame-400">Explore</h4>
             <ul className="space-y-2.5 text-sm text-muted">
               {[
-                { l: "Classes", h: "#classes" }, { l: "Membership", h: "#membership" },
+                { l: "Membership", h: "#membership" },
                 { l: "Facilities", h: "#facilities" },
                 { l: "Nutrition", h: "#nutrition" }, { l: "NFC Café", h: "#cafe" },
                 { l: "Swimming & Kids", h: "#swimming" },
@@ -73,7 +71,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
-          <p>Premium gym · Swimming · Nutrition · Body analytics</p>
+          <p>Premium gym · Swimming · Kids academy · Naslan Cafe</p>
         </div>
       </div>
     </footer>

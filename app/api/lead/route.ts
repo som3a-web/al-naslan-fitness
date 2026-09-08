@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   const lead = {
     ...payload,
     referenceId: referenceId(),
-    source: "al-naslan-demo-website",
+    source: "al-naslan-website",
     status: "new",
     createdAt: new Date().toISOString(),
   };
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
         next: { revalidate: 0 },
       });
     } catch {
-      // Keep demo lead capture successful if the automation webhook is not reachable.
+      // Keep lead capture successful even if the automation webhook is unreachable.
     }
   }
 

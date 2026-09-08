@@ -24,11 +24,11 @@ export function FreeTrial() {
         body: JSON.stringify({ ...form, type: "free-trial" }),
       });
       const data = await r.json();
-      setRef(data.referenceId || "NFC-DEMO");
-      router.push(`/trial-success?ref=${encodeURIComponent(data.referenceId || "NFC-DEMO")}&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
+      setRef(data.referenceId || "NFC-TRIAL");
+      router.push(`/trial-success?ref=${encodeURIComponent(data.referenceId || "NFC-TRIAL")}&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
     } catch {
-      setRef("NFC-DEMO");
-      router.push(`/trial-success?ref=NFC-DEMO&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
+      setRef("NFC-TRIAL");
+      router.push(`/trial-success?ref=NFC-TRIAL&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
     }
     setState("done");
   };
@@ -46,10 +46,10 @@ export function FreeTrial() {
                 Start your <span className="flame-text">free trial</span> today
               </h2>
               <p className="mt-4 text-muted">
-                A full-gym day pass + a complimentary InBody scan. No commitment — just walk in and feel the difference.
+                Try the gym with a free session. No commitment — just walk in and feel the difference.
               </p>
               <ul className="mt-6 space-y-3 text-sm">
-                {["Free InBody body composition scan", "Full access to gym, classes & pool", "Personal goal consultation", "Instant WhatsApp confirmation"].map((b) => (
+                {["Full access to the gym floor", "Tour of classes, pool & facilities", "Personal goal consultation", "Instant WhatsApp confirmation"].map((b) => (
                   <li key={b} className="flex items-center gap-2.5">
                     <CheckCircle2 size={18} className="text-flame-400" /> <span className="text-muted">{b}</span>
                   </li>
