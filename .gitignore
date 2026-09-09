@@ -32,3 +32,6 @@ business/
 # build info
 tsconfig.tsbuildinfo
 .vercel
+
+# vercel
+.vercel/

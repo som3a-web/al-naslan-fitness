@@ -1,18 +1,6 @@
 {
-  "services": {
-    "al-naslan-fitness": {
-      "root": ".",
-      "framework": "nextjs",
-      "buildCommand": "npm ci && npm run build"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "al-naslan-fitness"
-      }
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "installCommand": "npm install"
 }
