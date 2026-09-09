@@ -15,6 +15,11 @@ export const BRAND = {
   email: "nfcsharjah@gmail.com",
   website: "naslanfitnesscenter.com",
   currency: "AED",
+  address: "Al Mawja Tower - 1, Al Taawun Street, Al Khan, Sharjah, UAE",
+  addressAr: "برج الموجة - 1، شارع التعاون - الخان - إمارة الشارقة",
+  plusCode: "898G+PFC",
+  mapEmbed: "https://www.google.com/maps?q=898G%2BPFC+Sharjah&output=embed",
+  mapDirections: "https://www.google.com/maps/dir/?api=1&destination=898G%2BPFC+Sharjah",
 };
 
 // ===========================================================================

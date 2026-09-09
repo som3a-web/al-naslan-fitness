@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Cafe } from "@/components/sections/Cafe";
 import { Facilities } from "@/components/sections/Facilities";
+import { FindUs } from "@/components/sections/FindUs";
 import { Footer } from "@/components/sections/Footer";
 import { FreeTrial } from "@/components/sections/FreeTrial";
 import { Hero } from "@/components/sections/Hero";
@@ -27,6 +28,7 @@ export default function Home() {
         <Nutrition />
         <Cafe />
         <SwimKids />
+        <FindUs />
       </main>
       <Footer />
       <WhatsAppButton />
