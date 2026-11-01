@@ -1,6 +1,6 @@
 // ===========================================================================
 // Al Naslan Fitness Center (NFC) — central content source
-// Al Taawun, Sharjah, UAE · naslanfitnesscenter.com · @al_naslan_fitness_center
+// Al Taawun, Sharjah, UAE · naslanfitnesscenter.com · @naslanfitness
 // ===========================================================================
 
 export const BRAND = {
@@ -11,7 +11,9 @@ export const BRAND = {
   phone: "+971 52 899 8738",
   whatsapp: "+971528998738",
   whatsappLink: "https://wa.me/971528998738",
-  instagram: "https://www.instagram.com/al_naslan_fitness_center",
+  instagram: "https://www.instagram.com/naslanfitness",
+  tiktok: "https://www.tiktok.com/@naslanfitness",
+  facebook: "https://www.facebook.com/people/NFC-Gym/61591175116239/",
   email: "nfcsharjah@gmail.com",
   website: "naslanfitnesscenter.com",
   currency: "AED",
