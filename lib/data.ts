@@ -136,13 +136,13 @@ export const KIDS = [
   { name: "Summer Camp", ages: "5–14", schedule: "Jul–Aug · Daily", icon: "Flame" },
 ];
 
-export const PARTNERS = ["Matrix", "Naslan Cafe", "C5", "Al Mawja Tower"];
+export const PARTNERS = ["Matrix", "Naslan Cafe", "C5", "Al Mawja Tower", "Al Rasekh", "Totally Health"];
 
 export const FAQS = [
   { q: "How do I join?", a: "Tap “Join Now”, fill the quick form, and our team gets you started on WhatsApp. Want to see the gym first? A day pass is AED 35." },
-  { q: "What are the gym timings?", a: "Men's timing: 6:00 AM – 12:00 AM daily. For ladies and pool schedules, contact our team on WhatsApp for the latest slots." },
+  { q: "What are the gym timings?", a: "Ladies: 6:00 AM – 3:30 PM. Men: 4:00 PM – 1:00 AM. For pool schedules, contact our team on WhatsApp for the latest slots." },
   { q: "How much is a membership?", a: "Adult memberships start from AED 250/month — the same price for everyone — with big savings on 3, 6 and 12-month plans (1 year is AED 2,350). A day pass is AED 35, and families get AED 50 off per person." },
-  { q: "Do you have family & kids programs?", a: "Yes — kids swimming, a karate academy, junior fitness and summer camps. Kids memberships start from AED 250/month, and family members get AED 50 off per person." },
+  { q: "Do you have family & kids programs?", a: "Yes — kids swimming, a karate academy, junior fitness and summer camps. Kids memberships are AED 200/month, and family members get AED 50 off per person." },
 ];
 
 // ===========================================================================
