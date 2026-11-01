@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { CheckCircle2, Loader2, Sparkles, Gift } from "lucide-react";
+import { CheckCircle2, Loader2, Sparkles, Dumbbell } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { BRAND } from "@/lib/data";
 
 const GOALS = ["Fat Loss", "Muscle Gain", "General Fitness", "Swimming", "Kids Program"];
 
-export function FreeTrial() {
+export function JoinForm() {
   const router = useRouter();
   const [form, setForm] = useState({ name: "", phone: "", whatsapp: "", email: "", goal: "Fat Loss" });
   const [state, setState] = useState<"idle" | "loading" | "done">("idle");
@@ -21,35 +21,35 @@ export function FreeTrial() {
       const r = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, type: "free-trial" }),
+        body: JSON.stringify({ ...form, type: "join" }),
       });
       const data = await r.json();
-      setRef(data.referenceId || "NFC-TRIAL");
-      router.push(`/trial-success?ref=${encodeURIComponent(data.referenceId || "NFC-TRIAL")}&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
+      setRef(data.referenceId || "NFC-JOIN");
+      router.push(`/welcome?ref=${encodeURIComponent(data.referenceId || "NFC-JOIN")}&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
     } catch {
-      setRef("NFC-TRIAL");
-      router.push(`/trial-success?ref=NFC-TRIAL&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
+      setRef("NFC-JOIN");
+      router.push(`/welcome?ref=NFC-JOIN&name=${encodeURIComponent(form.name)}&goal=${encodeURIComponent(form.goal)}`);
     }
     setState("done");
   };
 
   return (
-    <section id="trial" className="section relative py-24">
+    <section id="join" className="section relative py-24">
       <div className="pointer-events-none absolute left-1/2 top-10 h-80 w-80 -translate-x-1/2 rounded-full bg-flame-500/25 blur-[130px]" />
       <Reveal>
         <div className="relative overflow-hidden rounded-[2rem] border border-flame-500/30 glass-strong p-7 sm:p-12">
           <div className="grid gap-10 lg:grid-cols-2">
             {/* Left copy */}
             <div className="flex flex-col justify-center">
-              <span className="eyebrow mb-4 w-fit"><Gift size={14} /> Free Trial</span>
+              <span className="eyebrow mb-4 w-fit"><Dumbbell size={14} /> Join NFC</span>
               <h2 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-                Start your <span className="flame-text">free trial</span> today
+                Start your <span className="flame-text">journey</span> today
               </h2>
               <p className="mt-4 text-muted">
-                Try the gym with a free session. No commitment — just walk in and feel the difference.
+                Leave your details and our team will get you started on WhatsApp — membership, personal training or a day pass.
               </p>
               <ul className="mt-6 space-y-3 text-sm">
-                {["Full access to the gym floor", "Tour of classes, pool & facilities", "Personal goal consultation", "Instant WhatsApp confirmation"].map((b) => (
+                {["Full access to the gym floor", "Tour of classes, pool & facilities", "Personal goal consultation", "Fast reply on WhatsApp"].map((b) => (
                   <li key={b} className="flex items-center gap-2.5">
                     <CheckCircle2 size={18} className="text-flame-400" /> <span className="text-muted">{b}</span>
                   </li>
@@ -66,7 +66,7 @@ export function FreeTrial() {
                   </div>
                   <h3 className="mt-6 font-display text-2xl font-extrabold">You&apos;re in, {form.name.split(" ")[0] || "champion"}!</h3>
                   <p className="mt-2 text-muted">
-                    Your free trial is reserved. Our team will confirm on WhatsApp shortly.
+                    Request received. Our team will contact you on WhatsApp shortly.
                   </p>
                   <p className="mt-4 rounded-full bg-white/5 px-4 py-2 text-sm">
                     Reference: <span className="font-bold text-flame-400">{ref}</span>
@@ -75,13 +75,13 @@ export function FreeTrial() {
                     <a href={BRAND.whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-flame">
                       Confirm on WhatsApp
                     </a>
-                    <button onClick={() => setState("idle")} className="btn-ghost">Book another</button>
+                    <button onClick={() => setState("idle")} className="btn-ghost">Send another</button>
                   </div>
                 </div>
               ) : (
                 <form onSubmit={submit} className="space-y-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-flame-400">
-                    <Sparkles size={16} /> Reserve your spot
+                    <Sparkles size={16} /> Get started
                   </div>
                   {[
                     { k: "name", label: "Full Name", type: "text", ph: "Ahmed Al Mansoori" },
@@ -123,7 +123,7 @@ export function FreeTrial() {
                     disabled={state === "loading"}
                     className="btn-flame w-full justify-center text-base disabled:opacity-70"
                   >
-                    {state === "loading" ? <><Loader2 className="animate-spin" size={18} /> Reserving…</> : "Claim Free Trial"}
+                    {state === "loading" ? <><Loader2 className="animate-spin" size={18} /> Sending…</> : "Join Now"}
                   </button>
                   <p className="text-center text-[11px] text-muted">
                     By submitting you agree to be contacted by NFC. No spam, ever.

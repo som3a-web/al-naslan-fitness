@@ -6,7 +6,7 @@ import { Cafe } from "@/components/sections/Cafe";
 import { Facilities } from "@/components/sections/Facilities";
 import { FindUs } from "@/components/sections/FindUs";
 import { Footer } from "@/components/sections/Footer";
-import { FreeTrial } from "@/components/sections/FreeTrial";
+import { JoinForm } from "@/components/sections/JoinForm";
 import { Hero } from "@/components/sections/Hero";
 import { Membership } from "@/components/sections/Membership";
 import { Nutrition } from "@/components/sections/Nutrition";
@@ -24,7 +24,7 @@ export default function Home() {
         <Partners />
         <Programs />
         <Membership />
-        <FreeTrial />
+        <JoinForm />
         <Nutrition />
         <Cafe />
         <SwimKids />

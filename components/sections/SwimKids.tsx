@@ -76,9 +76,9 @@ export function SwimKids() {
               ))}
             </div>
             <p className="mt-4 text-center text-xs text-muted">
-              Kids membership from {BRAND.currency} {PRICING.tiers.internal.kidsMonthly}/month — see pricing above.
+              Kids membership {BRAND.currency} {PRICING.kidsMonthly}/month — see pricing above.
             </p>
-            <a href="#trial" className="mt-3 block rounded-full bg-flame-gradient py-2.5 text-center text-sm font-bold text-white">
+            <a href="#join" className="mt-3 block rounded-full bg-flame-gradient py-2.5 text-center text-sm font-bold text-white">
               Register a Child
             </a>
           </div>

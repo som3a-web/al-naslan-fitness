@@ -4,15 +4,15 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { BRAND } from "@/lib/data";
 
-export default function TrialSuccess({
+export default function Welcome({
   searchParams,
 }: {
   searchParams: { ref?: string; name?: string; goal?: string };
 }) {
   const firstName = searchParams.name?.split(" ")[0] || "Champion";
-  const ref = searchParams.ref || "NFC-TRIAL";
+  const ref = searchParams.ref || "NFC-JOIN";
   const goal = searchParams.goal || "General Fitness";
-  const whatsappText = `Hi NFC, I submitted a free trial request. Reference: ${ref}. Goal: ${goal}.`;
+  const whatsappText = `Hi NFC, I'd like to join. Reference: ${ref}. Goal: ${goal}.`;
 
   return (
     <>
@@ -23,14 +23,14 @@ export default function TrialSuccess({
             <CheckCircle2 size={42} className="text-white" />
           </div>
           <p className="eyebrow mt-8">
-            <Sparkles size={14} /> Free Trial Reserved
+            <Sparkles size={14} /> Request Received
           </p>
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-6xl">
             You&apos;re in, <span className="flame-text">{firstName}</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted">
-            Your NFC free trial request is ready for WhatsApp confirmation. Bring your training shoes;
-            we&apos;ll prepare your gym access and goal consultation.
+            Your NFC request is ready — confirm on WhatsApp and our team will get you set up with
+            the right membership and a goal consultation.
           </p>
 
           <div className="mx-auto mt-8 grid max-w-xl gap-3 sm:grid-cols-3">
@@ -44,7 +44,7 @@ export default function TrialSuccess({
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p className="text-xs uppercase text-muted">Next Step</p>
-              <p className="mt-1 font-bold">Confirm time</p>
+              <p className="mt-1 font-bold">Confirm on WhatsApp</p>
             </div>
           </div>
 

@@ -75,8 +75,8 @@ export function Hero() {
         </motion.p>
 
         <motion.div variants={item} className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:flex sm:flex-wrap">
-          <a href="#trial" className="btn-flame whitespace-nowrap text-sm sm:text-base">
-            Start Free Trial <ArrowRight size={18} className="hidden sm:block" />
+          <a href="#join" className="btn-flame whitespace-nowrap text-sm sm:text-base">
+            Join Now <ArrowRight size={18} className="hidden sm:block" />
           </a>
           <a
             href={BRAND.whatsappLink}
@@ -87,7 +87,7 @@ export function Hero() {
             <MessageCircle size={16} /> WhatsApp
           </a>
           <a href="#membership" className="btn-ghost whitespace-nowrap text-sm text-white sm:order-2 sm:text-base">
-            Join Now
+            View Prices
           </a>
           <a
             href={`${BRAND.whatsappLink}?text=${encodeURIComponent("Hi NFC, I would like to book a fitness consultation.")}`}

@@ -50,8 +50,9 @@ export function FindUs() {
                   <Clock size={19} className="text-white" />
                 </span>
                 <div>
-                  <p className="font-bold">Men: {PRICING.maleTiming} daily</p>
-                  <p className="text-sm text-muted">Ladies &amp; pool hours — ask us on WhatsApp</p>
+                  <p className="font-bold">Ladies: {PRICING.ladiesTiming}</p>
+                  <p className="font-bold">Men: {PRICING.maleTiming}</p>
+                  <p className="text-sm text-muted">Pool hours — ask us on WhatsApp</p>
                 </div>
               </li>
             </ul>

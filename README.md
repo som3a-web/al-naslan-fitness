@@ -42,7 +42,7 @@ npm start
 app/                    Next.js App Router pages and API routes
   page.tsx              Homepage — composes every section in order
   api/chat/             Chatbot endpoint (falls back to lib/ai.ts)
-  api/lead/             Free-trial lead capture
+  api/lead/             Join-form lead capture
 components/
   sections/             Page sections (Hero, Facilities, Membership, Cafe…)
   ChatWidget.tsx        FAQ chatbot, bottom-right
@@ -72,7 +72,7 @@ Chatbot replies live in [`lib/ai.ts`](lib/ai.ts).
 
 ### Pricing
 
-Two tiers, **Internal** and **External**, toggled on the site. Effective **July 1st, 2026**. Men's timing 6:00 AM – 12:00 AM.
+One price list for everyone (no Internal/External tiers). Ladies 6:00 AM – 3:30 PM, Men 4:00 PM – 1:00 AM.
 
 ### Adding photos
 

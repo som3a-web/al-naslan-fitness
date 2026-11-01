@@ -1,10 +1,11 @@
 import { Instagram, MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Logo } from "../Logo";
-import { BRAND } from "@/lib/data";
+import { BRAND, PRICING } from "@/lib/data";
 
 const HOURS = [
-  { d: "Gym (Men)", h: "6:00 AM – 12:00 AM" },
-  { d: "Ladies & Pool", h: "Ask on WhatsApp" },
+  { d: "Gym (Ladies)", h: PRICING.ladiesTiming },
+  { d: "Gym (Men)", h: PRICING.maleTiming },
+  { d: "Pool", h: "Ask on WhatsApp" },
 ];
 
 export function Footer() {

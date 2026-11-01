@@ -5,8 +5,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Al Naslan Fitness Center | Gym in Al Taawun, Sharjah",
   description:
-    "Al Naslan Fitness Center (NFC) in Al Taawun, Sharjah: gym memberships, personal training, classes, swimming, kids programs, Naslan Cafe and free trial booking.",
-  keywords: ["Al Naslan Fitness Center", "Sharjah gym", "Al Taawun gym", "personal training Sharjah", "free gym trial"],
+    "Al Naslan Fitness Center (NFC) in Al Taawun, Sharjah: gym memberships, personal training, classes, swimming, kids programs, Naslan Cafe and easy online sign-up.",
+  keywords: ["Al Naslan Fitness Center", "Sharjah gym", "Al Taawun gym", "personal training Sharjah", "gym membership Sharjah"],
   openGraph: {
     title: "Al Naslan Fitness Center",
     description: "Premium fitness, swimming, kids programs and nutrition in one destination in Al Taawun, Sharjah.",

@@ -12,21 +12,15 @@ export type Msg = { role: "user" | "bot"; text: string; chips?: string[] };
 const aed = (n: number) => `${BRAND.currency} ${n.toLocaleString()}`;
 
 function pricingText(): string {
-  const i = PRICING.tiers.internal;
-  const e = PRICING.tiers.external;
+  const a = PRICING.adult;
   return [
-    "Here is our official pricing (effective " + PRICING.effectiveFrom + "):",
+    "Here is our official pricing — one price list for everyone:",
     "",
-    "Internal — Adult:",
-    `• 1 month ${aed(i.adult[0].price)} · 3 months ${aed(i.adult[1].price)}`,
-    `• 6 months ${aed(i.adult[2].price)} · 1 year ${aed(i.adult[3].price)}`,
+    "Adult membership:",
+    `• 1 month ${aed(a[0].price)} · 3 months ${aed(a[1].price)}`,
+    `• 6 months ${aed(a[2].price)} · 1 year ${aed(a[3].price)}`,
     "",
-    "External — Adult:",
-    `• 1 month ${aed(e.adult[0].price)} · 3 months ${aed(e.adult[1].price)}`,
-    `• 6 months ${aed(e.adult[2].price)} · 1 year ${aed(e.adult[3].price)}`,
-    "",
-    `Daily pass ${aed(PRICING.dailyPass)} · Family discount ${aed(PRICING.familyDiscount)} per person.`,
-    "Not sure if you're Internal or External? Ask our team on WhatsApp.",
+    `Kids (1 month) ${aed(PRICING.kidsMonthly)} · Daily pass ${aed(PRICING.dailyPass)} · Family discount ${aed(PRICING.familyDiscount)} per person.`,
   ].join("\n");
 }
 
@@ -34,42 +28,36 @@ export function aiReply(input: string): Msg {
   const q = input.toLowerCase();
 
   if (/personal training|personal trainer|\bpt\b|coach|trainer/.test(q)) {
-    const i = PRICING.tiers.internal;
-    const e = PRICING.tiers.external;
+    const pt = PRICING.pt;
     return {
       role: "bot",
-      text:
-        `Personal training packages:\n\nInternal:\n• 10 classes ${aed(i.pt[0].price)} · 20 classes ${aed(
-          i.pt[1].price
-        )} · 30 classes ${aed(i.pt[2].price)}\n\nExternal:\n• 10 classes ${aed(e.pt[0].price)} · 20 classes ${aed(
-          e.pt[1].price
-        )} · 30 classes ${aed(e.pt[2].price)}\n\nOur certified coaches build a custom program for your goal.`,
+      text: `Personal training packages:\n• 10 classes ${aed(pt[0].price)} · 20 classes ${aed(pt[1].price)} · 30 classes ${aed(
+        pt[2].price
+      )}\n\nOur certified coaches build a custom program for your goal.`,
       chips: ["Membership pricing", "Book on WhatsApp"],
     };
   }
   if (/kid|child|karate|junior|summer/.test(q)) {
     return {
       role: "bot",
-      text: `Kids programs: swimming, Karate Academy, junior fitness and a summer camp.\n\nKids membership (1 month): Internal ${aed(
-        PRICING.tiers.internal.kidsMonthly
-      )} · External ${aed(PRICING.tiers.external.kidsMonthly)}.\nFamily discount: ${aed(
-        PRICING.familyDiscount
-      )} off per person.`,
+      text: `Kids programs: swimming, Karate Academy, junior fitness and a summer camp.\n\nKids membership (1 month): ${aed(
+        PRICING.kidsMonthly
+      )}.\nFamily discount: ${aed(PRICING.familyDiscount)} off per person.`,
       chips: ["Register a child", "Talk on WhatsApp"],
     };
   }
-  if (/price|cost|how much|membership|plan|fee|tier|internal|external|daily pass|day pass|family/.test(q)) {
+  if (/price|cost|how much|membership|plan|fee|daily pass|day pass|family/.test(q)) {
     return {
       role: "bot",
       text: pricingText(),
-      chips: ["Personal training", "Kids programs", "Book a free trial"],
+      chips: ["Personal training", "Kids programs", "Join NFC"],
     };
   }
   if (/trial|free|try|start|sign ?up|join|register/.test(q)) {
     return {
       role: "bot",
-      text: "You can start with a free trial session — fill the 'Start Free Trial' form on this page and our team confirms your visit on WhatsApp. Prefer to try first? A daily pass is " + aed(PRICING.dailyPass) + ".",
-      chips: ["Open trial form", "Membership pricing", "WhatsApp the team"],
+      text: "Joining is easy — fill the 'Join NFC' form on this page and our team gets you started on WhatsApp. Want to see the gym first? A day pass is " + aed(PRICING.dailyPass) + ".",
+      chips: ["Open join form", "Membership pricing", "WhatsApp the team"],
     };
   }
   if (/class|schedule|timetable|yoga|hiit|crossfit|boxing|mobility/.test(q)) {
@@ -82,7 +70,7 @@ export function aiReply(input: string): Msg {
   if (/time|open|hour|when|timing/.test(q)) {
     return {
       role: "bot",
-      text: `Men's timing: ${PRICING.maleTiming} daily.\nFor ladies and pool schedules, message our team on WhatsApp for this week's slots.`,
+      text: `Gym hours:\n• Ladies: ${PRICING.ladiesTiming}\n• Men: ${PRICING.maleTiming}\n\nFor pool schedules, message our team on WhatsApp for this week's slots.`,
       chips: ["Pool & swimming", "WhatsApp the team"],
     };
   }
@@ -110,26 +98,26 @@ export function aiReply(input: string): Msg {
   if (/whatsapp|contact|call|phone|talk|human|email/.test(q)) {
     return {
       role: "bot",
-      text: `You can reach our team directly:\n• WhatsApp / phone: ${BRAND.phone}\n• Email: ${BRAND.email}\n\nThey handle trials, bookings and any questions.`,
+      text: `You can reach our team directly:\n• WhatsApp / phone: ${BRAND.phone}\n• Email: ${BRAND.email}\n\nThey handle memberships, bookings and any questions.`,
       chips: ["Open WhatsApp"],
     };
   }
   if (/\bhi\b|hello|hey|salam|marhaba|good (morning|afternoon|evening)/.test(q)) {
     return {
       role: "bot",
-      text: `Hi! I'm the ${BRAND.short} assistant. I can help with membership pricing, personal training, classes, swimming, kids programs, timings and free trials. What are you after?`,
-      chips: ["Membership pricing", "Book a free trial", "Class schedule"],
+      text: `Hi! I'm the ${BRAND.short} assistant. I can help with membership pricing, personal training, classes, swimming, kids programs, timings and joining. What are you after?`,
+      chips: ["Membership pricing", "Join NFC", "Class schedule"],
     };
   }
   return {
     role: "bot",
-    text: "I can help with membership pricing, personal training, classes, swimming & pool access, kids programs, timings, location and free trials. What would you like to know?",
-    chips: ["Pricing", "Free trial", "Timings", "Talk on WhatsApp"],
+    text: "I can help with membership pricing, personal training, classes, swimming & pool access, kids programs, timings, location and joining. What would you like to know?",
+    chips: ["Pricing", "Join NFC", "Timings", "Talk on WhatsApp"],
   };
 }
 
 export const WELCOME: Msg = {
   role: "bot",
   text: `👋 Welcome to ${BRAND.name}! Ask me about memberships, personal training, swimming, kids programs or timings.`,
-  chips: ["Membership pricing", "Book a free trial", "Personal training", "Kids programs"],
+  chips: ["Membership pricing", "Join NFC", "Personal training", "Kids programs"],
 };

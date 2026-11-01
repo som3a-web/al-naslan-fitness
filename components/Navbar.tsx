@@ -60,8 +60,8 @@ export function Navbar() {
             >
               <MessageCircle size={17} />
             </a>
-            <a href="#trial" className="hidden btn-flame sm:inline-flex">
-              Free Trial
+            <a href="#join" className="hidden btn-flame sm:inline-flex">
+              Join Now
             </a>
             <button
               onClick={() => setOpen((o) => !o)}
@@ -86,8 +86,8 @@ export function Navbar() {
               </a>
             ))}
             <div className="mt-1 grid gap-2">
-              <a href="#trial" onClick={() => setOpen(false)} className="btn-flame">
-                Free Trial
+              <a href="#join" onClick={() => setOpen(false)} className="btn-flame">
+                Join Now
               </a>
             </div>
           </div>

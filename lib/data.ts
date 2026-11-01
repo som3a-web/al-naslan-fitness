@@ -23,60 +23,37 @@ export const BRAND = {
 };
 
 // ===========================================================================
-// Pricing — official NFC rates, effective July 1st, 2026
+// Pricing — official NFC rates, one price list for everyone
 // ===========================================================================
-
-export type TierKey = "internal" | "external";
 
 export type AdultPlan = { duration: string; price: number; note?: string; best?: boolean };
 export type PTPackage = { classes: number; price: number; popular?: boolean };
 
 export const PRICING: {
-  effectiveFrom: string;
+  ladiesTiming: string;
   maleTiming: string;
   dailyPass: number;
   familyDiscount: number;
-  tiers: Record<
-    TierKey,
-    { label: string; adult: AdultPlan[]; pt: PTPackage[]; kidsMonthly: number }
-  >;
+  adult: AdultPlan[];
+  pt: PTPackage[];
+  kidsMonthly: number;
 } = {
-  effectiveFrom: "July 1st, 2026",
-  maleTiming: "6:00 AM – 12:00 AM",
-  dailyPass: 50,
+  ladiesTiming: "6:00 AM – 3:30 PM",
+  maleTiming: "4:00 PM – 1:00 AM",
+  dailyPass: 35,
   familyDiscount: 50,
-  tiers: {
-    internal: {
-      label: "Internal",
-      adult: [
-        { duration: "1 Month", price: 350 },
-        { duration: "3 Months", price: 900 },
-        { duration: "6 Months", price: 1700 },
-        { duration: "1 Year", price: 3000, note: "Best value", best: true },
-      ],
-      pt: [
-        { classes: 10, price: 1200 },
-        { classes: 20, price: 1950, popular: true },
-        { classes: 30, price: 2500 },
-      ],
-      kidsMonthly: 250,
-    },
-    external: {
-      label: "External",
-      adult: [
-        { duration: "1 Month", price: 400 },
-        { duration: "3 Months", price: 1050 },
-        { duration: "6 Months", price: 2000 },
-        { duration: "1 Year", price: 3400, note: "Best value", best: true },
-      ],
-      pt: [
-        { classes: 10, price: 1400 },
-        { classes: 20, price: 2400, popular: true },
-        { classes: 30, price: 3000 },
-      ],
-      kidsMonthly: 300,
-    },
-  },
+  adult: [
+    { duration: "1 Month", price: 250 },
+    { duration: "3 Months", price: 650 },
+    { duration: "6 Months", price: 1250 },
+    { duration: "1 Year", price: 2350, note: "Best value", best: true },
+  ],
+  pt: [
+    { classes: 10, price: 1200 },
+    { classes: 20, price: 1950, popular: true },
+    { classes: 30, price: 2500 },
+  ],
+  kidsMonthly: 200,
 };
 
 export const MEMBERSHIP_FEATURES = [
@@ -162,9 +139,9 @@ export const KIDS = [
 export const PARTNERS = ["Matrix", "Naslan Cafe", "C5", "Al Mawja Tower"];
 
 export const FAQS = [
-  { q: "How do I start a free trial?", a: "Tap “Start Free Trial”, fill the quick form, and our team confirms your session on WhatsApp." },
+  { q: "How do I join?", a: "Tap “Join Now”, fill the quick form, and our team gets you started on WhatsApp. Want to see the gym first? A day pass is AED 35." },
   { q: "What are the gym timings?", a: "Men's timing: 6:00 AM – 12:00 AM daily. For ladies and pool schedules, contact our team on WhatsApp for the latest slots." },
-  { q: "How much is a membership?", a: "Adult memberships start from AED 350/month (Internal) or AED 400/month (External), with big savings on 3, 6 and 12-month plans. A day pass is AED 50, and families get AED 50 off per person." },
+  { q: "How much is a membership?", a: "Adult memberships start from AED 250/month — the same price for everyone — with big savings on 3, 6 and 12-month plans (1 year is AED 2,350). A day pass is AED 35, and families get AED 50 off per person." },
   { q: "Do you have family & kids programs?", a: "Yes — kids swimming, a karate academy, junior fitness and summer camps. Kids memberships start from AED 250/month, and family members get AED 50 off per person." },
 ];
 

@@ -23,9 +23,9 @@ export function ChatWidget() {
     if (!text || typing) return;
 
     // Chips that act as shortcuts rather than questions
-    if (/^open trial form$/i.test(text)) {
+    if (/^open join form$/i.test(text)) {
       setOpen(false);
-      document.getElementById("trial")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("join")?.scrollIntoView({ behavior: "smooth" });
       return;
     }
     if (/^(open whatsapp|whatsapp the team|talk on whatsapp|whatsapp directions|book on whatsapp|register a child|ask about the menu)$/i.test(text)) {

@@ -1,18 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Baby, CalendarDays, Check, Clock, Dumbbell, Star, Ticket, Users } from "lucide-react";
+import { Baby, Check, Clock, Dumbbell, Star, Ticket, Users } from "lucide-react";
 import { SectionHeader } from "../SectionHeader";
 import { Reveal } from "../Reveal";
 import { TiltCard } from "../TiltCard";
-import { BRAND, MEMBERSHIP_FEATURES, PRICING, type TierKey } from "@/lib/data";
+import { BRAND, MEMBERSHIP_FEATURES, PRICING } from "@/lib/data";
 
 const fmt = (n: number) => n.toLocaleString();
 
 export function Membership() {
-  const [tier, setTier] = useState<TierKey>("internal");
-  const t = PRICING.tiers[tier];
-
   return (
     <section id="membership" className="section relative py-24">
       <div className="pointer-events-none absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-flame-500/20 blur-[120px]" />
@@ -20,35 +16,20 @@ export function Membership() {
         eyebrow="Membership & Pricing"
         title="Choose your"
         highlight="commitment"
-        subtitle="Transparent pricing in AED, with Internal and External rates. Not sure which tier applies to you? Ask our team on WhatsApp."
+        subtitle="Transparent pricing in AED — one price list for everyone. Questions? Ask our team on WhatsApp."
       />
 
-      {/* Tier toggle */}
-      <Reveal className="mt-10 flex justify-center">
-        <div className="inline-flex rounded-full border border-white/10 glass p-1.5">
-          {(Object.keys(PRICING.tiers) as TierKey[]).map((key) => (
-            <button
-              key={key}
-              onClick={() => setTier(key)}
-              className={`rounded-full px-6 py-2.5 text-sm font-bold transition ${
-                tier === key ? "bg-flame-gradient text-white shadow-flame" : "text-muted hover:text-flame-400"
-              }`}
-              aria-pressed={tier === key}
-            >
-              {PRICING.tiers[key].label}
-            </button>
-          ))}
-        </div>
-      </Reveal>
-
-      {/* Effective date + timing */}
-      <Reveal className="mt-6">
-        <div className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-2 rounded-2xl border border-flame-500/25 bg-flame-500/[0.07] px-5 py-3 text-center text-sm sm:flex-row sm:gap-6">
+      {/* Prices for everyone + timing */}
+      <Reveal className="mt-10">
+        <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-2 rounded-2xl border border-flame-500/25 bg-flame-500/[0.07] px-5 py-3 text-center text-sm sm:flex-row sm:gap-6">
           <span className="flex items-center gap-2 font-semibold">
-            <CalendarDays size={15} className="text-flame-400" /> Pricing effective from {PRICING.effectiveFrom}
+            <Users size={15} className="text-flame-400" /> Prices for everyone
           </span>
           <span className="flex items-center gap-2 font-semibold">
-            <Clock size={15} className="text-flame-400" /> Men&apos;s timing: {PRICING.maleTiming} daily
+            <Clock size={15} className="text-flame-400" /> Ladies: {PRICING.ladiesTiming}
+          </span>
+          <span className="flex items-center gap-2 font-semibold">
+            <Clock size={15} className="text-flame-400" /> Men: {PRICING.maleTiming}
           </span>
         </div>
       </Reveal>
@@ -68,12 +49,12 @@ export function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">Adult</h3>
-                    <p className="text-sm text-muted">{t.label} rate</p>
+                    <p className="text-sm text-muted">Gym membership</p>
                   </div>
                 </div>
 
                 <ul className="mt-6 space-y-3">
-                  {t.adult.map((p) => (
+                  {PRICING.adult.map((p) => (
                     <li
                       key={p.duration}
                       className={`flex items-center justify-between rounded-2xl border p-4 ${
@@ -104,7 +85,7 @@ export function Membership() {
                 </ul>
 
                 <a
-                  href={`${BRAND.whatsappLink}?text=${encodeURIComponent(`Hi NFC, I'd like to join with an Adult ${t.label} membership.`)}`}
+                  href={`${BRAND.whatsappLink}?text=${encodeURIComponent("Hi NFC, I'd like to join with an Adult membership.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-7 block rounded-full bg-flame-gradient py-3 text-center text-sm font-bold text-white transition hover:shadow-flame-lg"
@@ -127,12 +108,12 @@ export function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">Personal Training</h3>
-                    <p className="text-sm text-muted">1-to-1 coaching · {t.label} rate</p>
+                    <p className="text-sm text-muted">1-to-1 coaching</p>
                   </div>
                 </div>
 
                 <ul className="mt-6 space-y-3">
-                  {t.pt.map((p) => (
+                  {PRICING.pt.map((p) => (
                     <li
                       key={p.classes}
                       className={`flex items-center justify-between rounded-2xl border p-4 ${
@@ -167,7 +148,7 @@ export function Membership() {
                 </ul>
 
                 <a
-                  href={`${BRAND.whatsappLink}?text=${encodeURIComponent(`Hi NFC, I'd like to book Personal Training (${t.label} rate).`)}`}
+                  href={`${BRAND.whatsappLink}?text=${encodeURIComponent("Hi NFC, I'd like to book Personal Training.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-7 block rounded-full py-3 text-center text-sm font-bold btn-ghost"
@@ -190,7 +171,7 @@ export function Membership() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">Kids & Passes</h3>
-                    <p className="text-sm text-muted">{t.label} rate</p>
+                    <p className="text-sm text-muted">Kids, day pass & family</p>
                   </div>
                 </div>
 
@@ -202,7 +183,7 @@ export function Membership() {
                     </div>
                     <p className="font-display text-2xl font-extrabold">
                       <span className="text-xs text-flame-400">{BRAND.currency} </span>
-                      {fmt(t.kidsMonthly)}
+                      {fmt(PRICING.kidsMonthly)}
                     </p>
                   </li>
                   <li className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-4">
