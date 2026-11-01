@@ -18,7 +18,7 @@ export const BRAND = {
   // Google Business Profile (place ID ChIJ35ZTlBNbXz4RfWQLQVKLiDc)
   googleMaps: "https://maps.google.com/?cid=4001601454313530493",
   googleReview: "https://search.google.com/local/writereview?placeid=ChIJ35ZTlBNbXz4RfWQLQVKLiDc",
-  email: "nfcsharjah@gmail.com",
+  email: "naslanfitness1@gmail.com",
   website: "naslanfitnesscenter.com",
   currency: "AED",
   address: "Al Mawja Tower - 1, Al Taawun Street, Al Khan, Sharjah, UAE",
