@@ -1,6 +1,7 @@
 import { Facebook, Instagram, MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Logo } from "../Logo";
 import { BRAND, PRICING } from "@/lib/data";
+import { LANDING_PAGES } from "@/lib/seo";
 
 const HOURS = [
   { d: "Gym (Ladies)", h: PRICING.ladiesTiming },
@@ -51,10 +52,11 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-flame-400">Explore</h4>
             <ul className="space-y-2.5 text-sm text-muted">
               {[
-                { l: "Membership", h: "#membership" },
-                { l: "Facilities", h: "#facilities" },
-                { l: "Nutrition", h: "#nutrition" }, { l: "NFC Café", h: "#cafe" },
-                { l: "Swimming & Kids", h: "#swimming" },
+                { l: "Membership", h: "/#membership" },
+                { l: "Facilities", h: "/#facilities" },
+                { l: "NFC Café", h: "/#cafe" },
+                ...LANDING_PAGES.map((p) => ({ l: p.label, h: p.href })),
+                { l: "العربية", h: "/ar" },
               ].map((x) => (
                 <li key={x.l}><a href={x.h} className="transition hover:text-flame-400">{x.l}</a></li>
               ))}

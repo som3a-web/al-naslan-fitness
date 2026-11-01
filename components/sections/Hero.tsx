@@ -51,13 +51,13 @@ export function Hero() {
         className="section relative z-10 pb-24 pt-28 sm:pt-36"
       >
         <motion.div variants={item} className="mb-5 flex flex-wrap items-center gap-3 sm:mb-6">
-          <span className="eyebrow">
+          <h1 className="eyebrow">
             <MapPin size={14} />
-            {BRAND.location}
-          </span>
+            Gym &amp; Swimming Pool in Al Taawun, Sharjah · Ladies &amp; Men
+          </h1>
         </motion.div>
 
-        <motion.h1
+        <motion.p
           variants={item}
           aria-label="One membership. Every fitness experience."
           className="max-w-5xl font-display text-[2.65rem] font-extrabold leading-[0.94] tracking-normal text-white sm:text-7xl sm:leading-[0.92] lg:text-8xl"
@@ -67,7 +67,7 @@ export function Hero() {
           EVERY FITNESS{" "}
           <br />
           <span className="flame-text">EXPERIENCE.</span>
-        </motion.h1>
+        </motion.p>
 
         <motion.p variants={item} className="mt-5 max-w-2xl text-base leading-7 text-white/75 sm:mt-6 sm:text-lg sm:leading-8">
           {BRAND.short} brings strength training, swimming, kids programs, nutrition

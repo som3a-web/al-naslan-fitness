@@ -26,7 +26,7 @@ export function MobileActionBar() {
     >
       <div className="glass-strong safe-bottom border-t border-white/10 px-3 pt-3">
         <div className="grid grid-cols-2 gap-2.5">
-          <a href="#join" className="btn-flame whitespace-nowrap py-3.5">
+          <a href="/#join" className="btn-flame whitespace-nowrap py-3.5">
             <Zap size={16} /> Join Now
           </a>
           <a

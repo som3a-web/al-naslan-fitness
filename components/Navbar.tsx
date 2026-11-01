@@ -7,11 +7,11 @@ import { Menu, MessageCircle, X } from "lucide-react";
 import { BRAND } from "@/lib/data";
 
 const LINKS = [
-  { label: "Facilities", href: "#facilities" },
-  { label: "Programs", href: "#programs" },
-  { label: "Membership", href: "#membership" },
-  { label: "Nutrition", href: "#nutrition" },
-  { label: "Kids", href: "#swimming" },
+  { label: "Facilities", href: "/#facilities" },
+  { label: "Programs", href: "/#programs" },
+  { label: "Membership", href: "/#membership" },
+  { label: "Nutrition", href: "/#nutrition" },
+  { label: "Kids", href: "/kids-programs-sharjah" },
 ];
 
 export function Navbar() {
@@ -60,7 +60,7 @@ export function Navbar() {
             >
               <MessageCircle size={17} />
             </a>
-            <a href="#join" className="hidden btn-flame sm:inline-flex">
+            <a href="/#join" className="hidden btn-flame sm:inline-flex">
               Join Now
             </a>
             <button
@@ -86,7 +86,7 @@ export function Navbar() {
               </a>
             ))}
             <div className="mt-1 grid gap-2">
-              <a href="#join" onClick={() => setOpen(false)} className="btn-flame">
+              <a href="/#join" onClick={() => setOpen(false)} className="btn-flame">
                 Join Now
               </a>
             </div>
