@@ -19,7 +19,7 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm text-muted">
               {BRAND.location}. Forge your strongest self with premium training, swimming, nutrition and recovery.
             </p>
-            <div className="mt-5 flex gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 transition hover:border-flame-500/50 hover:text-flame-400">
                 <Instagram size={18} />
@@ -33,6 +33,12 @@ export function Footer() {
               <a href={BRAND.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 transition hover:border-flame-500/50 hover:text-flame-400">
                 <Facebook size={18} />
+              </a>
+              <a href={BRAND.snapchat} target="_blank" rel="noopener noreferrer" aria-label="Snapchat"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 transition hover:border-flame-500/50 hover:text-flame-400">
+                <svg width={18} height={18} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.5c-3.2 0-5.6 2.4-5.6 5.7v2.3c-.4.1-.9-.1-1.3-.2-.6-.1-1 .5-.6.9.5.5 1.4.8 1.9 1-.5 1.6-1.9 3.2-3.6 3.8-.4.1-.4.7 0 .8.8.3 1.7.4 2 .8.2.3.1.9.6 1 .6.1 1.4-.2 2.3.1 1 .3 2 1.8 4.3 1.8s3.3-1.5 4.3-1.8c.9-.3 1.7 0 2.3-.1.5-.1.4-.7.6-1 .3-.4 1.2-.5 2-.8.4-.1.4-.7 0-.8-1.7-.6-3.1-2.2-3.6-3.8.5-.2 1.4-.5 1.9-1 .4-.4 0-1-.6-.9-.4.1-.9.3-1.3.2V8.2c0-3.3-2.4-5.7-5.6-5.7z" />
+                </svg>
               </a>
               <a href={BRAND.whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 transition hover:border-green-500/50 hover:text-green-400">

@@ -14,6 +14,7 @@ export const BRAND = {
   instagram: "https://www.instagram.com/naslanfitness",
   tiktok: "https://www.tiktok.com/@naslanfitness",
   facebook: "https://www.facebook.com/people/NFC-Gym/61591175116239/",
+  snapchat: "https://www.snapchat.com/@alnaslanfitness",
   email: "nfcsharjah@gmail.com",
   website: "naslanfitnesscenter.com",
   currency: "AED",
