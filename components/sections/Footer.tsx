@@ -1,4 +1,4 @@
-import { Facebook, Instagram, MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Star, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Logo } from "../Logo";
 import { BRAND, PRICING } from "@/lib/data";
 import { LANDING_PAGES } from "@/lib/seo";
@@ -70,6 +70,11 @@ export function Footer() {
               <li className="flex items-center gap-2.5"><Mail size={15} className="text-flame-400" /> {BRAND.email}</li>
               <li className="flex items-center gap-2.5"><MapPin size={15} className="text-flame-400" /> {BRAND.location}</li>
               <li className="flex items-center gap-2.5"><MessageCircle size={15} className="text-flame-400" /> {BRAND.website}</li>
+              <li>
+                <a href={BRAND.googleReview} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 font-semibold text-flame-400 transition hover:text-flame-300">
+                  <Star size={15} /> Review us on Google
+                </a>
+              </li>
             </ul>
           </div>
 

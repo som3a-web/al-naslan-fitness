@@ -45,7 +45,7 @@ export function gymJsonLd() {
       addressCountry: "AE",
     },
     geo: { "@type": "GeoCoordinates", ...GEO },
-    hasMap: BRAND.mapDirections,
+    hasMap: BRAND.googleMaps,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -64,7 +64,7 @@ export function gymJsonLd() {
       "Cafe inside",
       "Free parking",
     ].map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })),
-    sameAs: [BRAND.instagram, BRAND.tiktok, BRAND.facebook, BRAND.snapchat],
+    sameAs: [BRAND.googleMaps, BRAND.instagram, BRAND.tiktok, BRAND.facebook, BRAND.snapchat],
   };
 }
 

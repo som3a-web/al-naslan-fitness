@@ -15,6 +15,9 @@ export const BRAND = {
   tiktok: "https://www.tiktok.com/@naslanfitness",
   facebook: "https://www.facebook.com/people/NFC-Gym/61591175116239/",
   snapchat: "https://www.snapchat.com/@alnaslanfitness",
+  // Google Business Profile (place ID ChIJ35ZTlBNbXz4RfWQLQVKLiDc)
+  googleMaps: "https://maps.google.com/?cid=4001601454313530493",
+  googleReview: "https://search.google.com/local/writereview?placeid=ChIJ35ZTlBNbXz4RfWQLQVKLiDc",
   email: "nfcsharjah@gmail.com",
   website: "naslanfitnesscenter.com",
   currency: "AED",
