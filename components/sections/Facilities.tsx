@@ -267,7 +267,7 @@ export function Facilities() {
           subtitle="From the gym floor to the swimming pool — explore the spaces that make NFC a destination."
         />
 
-        <div className="mt-14 grid auto-rows-[248px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid auto-rows-[minmax(248px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {FACILITIES.map((facility, index) => {
             const images = FACILITY_GALLERIES[facility.name] ?? [];
             const heroImage = images[0];
