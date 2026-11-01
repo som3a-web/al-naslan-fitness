@@ -27,9 +27,9 @@ export function Hero() {
         muted
         loop
         playsInline
-        poster="/media/gym-still-1.jpg"
+        poster="/media/nfc-tour-poster.jpg"
       >
-        <source src="/media/gym-hero.mp4" type="video/mp4" />
+        <source src="/media/nfc-tour.mp4" type="video/mp4" />
       </video>
 
       {/* Overlays */}

@@ -106,5 +106,5 @@ Contributors: branch off `main`, open a pull request — don't push straight to 
 ## Brand Assets
 
 - Logo: `public/media/nfc-logo.jpeg`
-- Hero video: `public/media/gym-hero.mp4`
+- Hero video: `public/media/nfc-tour.mp4` (poster `nfc-tour-poster.jpg`)
 - Colors: gold `#FFB020`, orange `#FF6A00`, ember `#E0301E`, cream `#F7F4EF`, ink `#070708`
