@@ -22,166 +22,156 @@ type LightboxState = {
 
 const GYM_FLOOR_IMAGES: GalleryImage[] = [
   {
-    src: "/media/gym-floor/main-gym-floor.jpg",
-    alt: "Main gym floor with strength machines and warm architectural lighting",
-    label: "Main floor",
+    src: "/media/gym-floor/strength-floor-wide.jpg",
+    alt: "Wide view of the NFC strength floor with plate-loaded machines and dumbbell racks",
+    label: "Strength floor",
   },
   {
-    src: "/media/gym-floor/cardio-treadmills.jpg",
-    alt: "Cardio treadmills beside a neon climb beyond limits wall",
-    label: "Cardio zone",
+    src: "/media/gym-floor/plate-loaded-benches.jpg",
+    alt: "Plate-loaded bench press stations in front of the dumbbell racks",
+    label: "Plate-loaded benches",
   },
   {
-    src: "/media/gym-floor/dumbbell-wall.jpg",
-    alt: "Dumbbell area with illuminated mirrors and free weights",
-    label: "Free weights",
+    src: "/media/gym-floor/plate-loaded-windows.jpg",
+    alt: "Row of plate-loaded strength machines beside floor-to-ceiling windows",
+    label: "Plate-loaded machines",
   },
   {
-    src: "/media/gym-floor/cable-machines.jpg",
-    alt: "Cable machines with colorful vertical light bars",
+    src: "/media/gym-floor/cable-station-wide.jpg",
+    alt: "Multi-station cable machine on the gym floor with neon accent lighting",
     label: "Cable station",
   },
   {
-    src: "/media/gym-floor/strength-accessories.jpg",
-    alt: "Strength accessories and bench beside textured brick wall",
-    label: "Strength tools",
-  },
-  {
-    src: "/media/gym-floor/training-machine-sign.jpg",
-    alt: "Training machine neon sign inside the gym floor",
-    label: "Training zone",
-  },
-  {
-    src: "/media/gym-floor/no-days-off-machines.jpg",
-    alt: "Gym machines beside a no days off neon sign and tall windows",
-    label: "No days off",
-  },
-  {
-    src: "/media/gym-floor/run-cardio-corner.jpg",
-    alt: "Cardio corner with bikes, treadmills and RUN neon wall detail",
-    label: "Run corner",
-  },
-  {
-    src: "/media/gym-floor/mirror-cable-cardio.jpg",
-    alt: "Cable machine and cardio equipment reflected in illuminated mirrors",
-    label: "Mirror line",
-  },
-  {
-    src: "/media/gym-floor/challenge-climber.jpg",
-    alt: "Climber machine in front of a brick wall challenge neon sign",
-    label: "Challenge wall",
+    src: "/media/gym-floor/multi-station.jpg",
+    alt: "Multi-station cable and pulley machine with exercise balls",
+    label: "Multi-station",
   },
   {
     src: "/media/gym-floor/nfc-cable-machine.jpg",
-    alt: "NFC wall logo beside a cable machine on the main gym floor",
-    label: "NFC station",
+    alt: "Cable machine beside the NFC logo wall, with the cardio room behind",
+    label: "NFC cable machine",
   },
   {
-    src: "/media/gym-floor/beast-mode-leg-press.jpg",
-    alt: "Leg press machines beside a beast mode unlocked neon sign",
-    label: "Beast mode",
+    src: "/media/gym-floor/ski-erg-strength.jpg",
+    alt: "SkiErg and assisted dip machine in front of the gym mirrors",
+    label: "SkiErg & machines",
   },
   {
-    src: "/media/gym-floor/cardio-pool-view.jpg",
-    alt: "Treadmill beside glass overlooking the swimming pool",
-    label: "Pool view",
+    src: "/media/gym-floor/welcome-entrance.jpg",
+    alt: "Illuminated entrance corridor with a Welcome to our Gym sign",
+    label: "Gym entrance",
   },
   {
-    src: "/media/gym-floor/climb-beyond-treadmills.jpg",
-    alt: "Treadmills beside a climb beyond limits neon sign",
-    label: "Climb treadmills",
+    src: "/media/gym-floor/nfc-logo-wall.jpg",
+    alt: "NFC Naslan Fitness Center logo on a brick wall",
+    label: "NFC wall",
   },
   {
-    src: "/media/gym-floor/no-pain-train-sign.jpg",
-    alt: "No pain no gain wall sign at the main gym floor entrance",
-    label: "Train sign",
+    src: "/media/gym-floor/gx-room.jpg",
+    alt: "GX room studio with neon lighting, mirrors and a wooden floor",
+    label: "GX room",
+  },
+  {
+    src: "/media/gym-floor/stronger-than-yesterday.jpg",
+    alt: "Stronger Than Yesterday neon sign above medicine ball racks in the GX room",
+    label: "GX room",
   },
 ];
 
 const CARDIO_ZONE_IMAGES: GalleryImage[] = [
   {
-    src: "/media/cardio-zone/cardio-zone-01.jpg",
-    alt: "Cardio Zone training wall with a neon Together We Burn Brighter sign",
-    label: "Training wall",
+    src: "/media/cardio-zone/climb-beyond-limits.jpg",
+    alt: "Treadmills under the Climb Beyond Limits neon sign",
+    label: "Treadmills",
   },
   {
-    src: "/media/cardio-zone/cardio-zone-02.jpg",
-    alt: "Cardio Zone interior with illuminated brick walls and training equipment",
-    label: "Cardio interior",
+    src: "/media/cardio-zone/treadmills-pool-view.jpg",
+    alt: "Treadmills overlooking the swimming pool through a glass wall",
+    label: "Pool-view treadmills",
   },
   {
-    src: "/media/cardio-zone/cardio-zone-03.jpg",
-    alt: "Cardio Zone equipment beneath colorful architectural lighting",
-    label: "Training area",
+    src: "/media/cardio-zone/stair-climber.jpg",
+    alt: "Stair climber and exercise bike in front of a motivational neon sign",
+    label: "Stair climber",
   },
   {
-    src: "/media/cardio-zone/cardio-zone-04.jpg",
-    alt: "Cardio Zone floor with premium equipment and neon accents",
-    label: "Equipment floor",
+    src: "/media/cardio-zone/bike-and-climber.jpg",
+    alt: "Exercise bike and stair climber under an If It Doesn't Challenge You neon sign",
+    label: "Bikes & climbers",
   },
   {
-    src: "/media/cardio-zone/cardio-zone-05.jpg",
-    alt: "Cardio Zone training space with industrial brick finishes",
-    label: "Fitness space",
-  },
-  {
-    src: "/media/cardio-zone/cardio-zone-06.jpg",
-    alt: "Cardio Zone interior with warm lighting and training stations",
-    label: "Training stations",
-  },
-  {
-    src: "/media/cardio-zone/cardio-zone-07.jpg",
-    alt: "Cardio Zone studio with a Stronger Than Yesterday neon sign",
-    label: "Studio floor",
-  },
-  {
-    src: "/media/cardio-zone/cardio-zone-08.jpg",
-    alt: "Cardio Zone studio with illuminated mirrors and a boxing station",
-    label: "Boxing station",
+    src: "/media/cardio-zone/cross-trainer-mirrors.jpg",
+    alt: "Cross trainer and cable machine in front of large gym mirrors",
+    label: "Cross trainer",
   },
 ];
 
 const SWIMMING_POOL_IMAGES: GalleryImage[] = [
   {
-    src: "/media/swimming-pool/lap-pool-gym-view.jpg",
-    alt: "Indoor lap pool with the gym floor visible behind glass walls",
+    src: "/media/swimming-pool/pool-nfc-wall.jpg",
+    alt: "Indoor swimming pool beside the illuminated NFC logo mosaic wall",
+    label: "NFC wall",
+  },
+  {
+    src: "/media/swimming-pool/pool-gym-view.jpg",
+    alt: "Indoor pool with the NFC logo and the gym floor visible behind glass",
+    label: "Pool & gym view",
+  },
+  {
+    src: "/media/swimming-pool/lap-pool-wide.jpg",
+    alt: "Wide view of the indoor lap pool with natural light",
     label: "Lap pool",
   },
   {
-    src: "/media/swimming-pool/pool-nfc-wall.jpg",
-    alt: "Swimming pool beside the NFC logo wall and lifebuoys",
+    src: "/media/swimming-pool/pool-ladder.jpg",
+    alt: "Swimming pool steps and ladder beside the NFC wall",
     label: "Pool deck",
   },
   {
-    src: "/media/swimming-pool/pool-nfc-logo.jpg",
-    alt: "NFC logo on the mosaic wall over the swimming pool",
-    label: "NFC wall",
+    src: "/media/swimming-pool/loungers.jpg",
+    alt: "Poolside loungers beside floor-to-ceiling windows",
+    label: "Loungers",
+  },
+  {
+    src: "/media/swimming-pool/pool-changing-area.jpg",
+    alt: "Pool corner with direct access to the changing area",
+    label: "Pool access",
+  },
+  {
+    src: "/media/swimming-pool/pool-lifebuoy.jpg",
+    alt: "Lifebuoys on the mosaic wall next to the NFC logo",
+    label: "Lifeguard ready",
   },
 ];
 
 const KIDS_POOL_IMAGES: GalleryImage[] = [
   {
     src: "/media/kids-pool/kids-round-pool.jpg",
-    alt: "Round shallow kids pool with seating area and natural light",
+    alt: "Round shallow kids pool beside the windows",
     label: "Kids pool",
   },
 ];
 
 const LOCKER_IMAGES: GalleryImage[] = [
   {
-    src: "/media/lockers/locker-wall.jpg",
-    alt: "Changing room wall of digital-lock lockers with accent lighting",
-    label: "Lockers",
+    src: "/media/lockers/locker-room.jpg",
+    alt: "Changing room with lockers, a bench and a backlit mirror",
+    label: "Locker room",
   },
   {
-    src: "/media/lockers/shower-rooms.jpg",
-    alt: "Private shower room doors along a tiled changing-room corridor",
+    src: "/media/lockers/locker-corridor.jpg",
+    alt: "Locker corridor leading to the showers with neon accents",
+    label: "Locker corridor",
+  },
+  {
+    src: "/media/lockers/enter-different-exit-stronger.jpg",
+    alt: "Shower room doors beside an Enter Different Exit Stronger neon sign",
     label: "Shower rooms",
   },
   {
-    src: "/media/lockers/vanity-mirrors.jpg",
-    alt: "Vanity area with stone basins and backlit mirrors",
-    label: "Vanity area",
+    src: "/media/lockers/you-look-amazing.jpg",
+    alt: "Changing room corridor with a You Look Amazing neon mirror",
+    label: "Changing rooms",
   },
 ];
 
